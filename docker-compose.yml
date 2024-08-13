@@ -1,0 +1,8 @@
+version: '69.101'
+
+services:
+  web:
+    image: orange-apache:latest
+    restart: always
+    ports:
+      - "80:80"

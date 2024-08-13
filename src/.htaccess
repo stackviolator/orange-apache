@@ -1,0 +1,6 @@
+<Files "admin.php">
+	AuthType Basic
+	AuthName "Admin Panel"
+	AuthUserFile "/var/www/html/.htpasswd"
+	Require valid-user
+</Files>
