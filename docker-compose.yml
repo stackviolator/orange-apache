@@ -1,8 +1,20 @@
-version: '69.101'
-
+version: '3.9'
 services:
-  web:
-    image: orange-apache:latest
-    restart: always
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/var/www/html
+
+  apache-httpd:
+    build:
+      context: .
+      dockerfile: ./apache/Dockerfile
+    volumes:
+      - ./app:/var/www/html
     ports:
-      - "80:80"
+      - "8080:80"
+    depends_on:
+      - php-fpm
+
